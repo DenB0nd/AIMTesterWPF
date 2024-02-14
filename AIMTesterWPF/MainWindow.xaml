@@ -1,0 +1,45 @@
+﻿<Window x:Class="AIMTesterWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:uc="clr-namespace:AIMTesterWPF.UserControls"
+        xmlns:local="clr-namespace:AIMTesterWPF"
+        mc:Ignorable="d"
+        Title ="FaceIT" Height="450" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem x:Name="Game">
+                <TabItem.Header>
+                    <TextBlock>Game</TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <uc:TimerOutput x:Name="timer"
+                                    Grid.Column="0" Grid.Row="0"
+                                    Background="LightGray"/>
+                    <Grid x:Name="contentPlaceholder"
+                          Grid.Row="1" Grid.ColumnSpan="3">
+                        <uc:StartScreen x:Name="startScreen"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="results">
+                <TabItem.Header>
+                    <TextBlock>Results</TextBlock>
+                </TabItem.Header>
+                <Grid>
+                    <DataGrid x:Name="resultTable"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
